@@ -1,0 +1,178 @@
+{
+    "starting_inventory": ["wristwatch", "compass"],
+    "plane crash":{
+        "description":"You are in a plane crashed near the beach, next to you there is a box with chains and near you there is a forest.",
+        "actions":{
+            "open box":"box",
+            "go to the beach":"beach",
+            "go to the forest":"forest"
+        },
+        "exit":false,
+        "must_have":[],
+        "cannot_have":[],
+        "if_has":null,
+        "in_room":[]
+    },
+    "box":{
+        "description":"You use a chain cutter to cut the chain on the box, then open the box. The box has an orange key inside.",
+        "actions":{
+            "go to plane crash":"plane crash"
+        },
+        "exit":false,
+        "must_have":["chain cutter"],
+        "cannot_have":[],
+        "if_has":{
+            "item": "orange key",
+	        "description": "You open the box and find that there is nothing inside. And you found the broken chain."
+        },
+        "in_room":["orange key"]
+    },
+    "beach":{
+        "description":"You walk to a quiet beach. To your left is the wreckage of a crashed plane. On the right side by the sea there is a lifeboat without people.",
+        "actions":{
+            "go to plane crash":"plane crash",
+            "go to life boat":"life boat"
+        },
+        "exit":false,
+        "must_have":[],
+        "cannot_have":[],
+        "if_has":null,
+        "in_room":[]
+    },
+    "life boat":{
+        "description":"In front of you is an uninhabited lifeboat by the sea,You look inside the lifeboat and find a working flashlight.",
+        "actions":{
+            "go to the beach":"beach"
+        },
+        "exit":false,
+        "must_have":[],
+        "cannot_have":[],
+        "if_has":{
+            "item": "flashlight",
+	        "description":"Ahead of you is an empty lifeboat with nothing on board."
+        },
+        "in_room":["flashlight"]
+    },
+    "forest":{
+        "description":"You are in the middle of the forest amongst many strange sounds. If you don't have a compass you won't be able to go anywhere.",
+        "actions":{
+            "up the mountain":"mountain",
+            "go to the big tree":"tree",
+            "go to the river":"river",
+            "go to plane crash":"plane crash"
+        },
+        "exit":false,
+        "must_have":["compass"],
+        "cannot_have":[],
+        "if_has":null,
+        "in_room":[]
+    },
+    "tree":{
+        "description":"You are at the bottom of a large tree, looking up into the tree you will find a parachute stuck on a branch. Beneath the tree was a map showing the way to the cave.",
+        "actions":{
+            "go to the forest":"forest",
+            "go to a house":"house"
+        },
+        "exit":false,
+        "must_have":[],
+        "cannot_have":[],
+        "if_has":{
+            "item": "map",
+	        "description":"You are at the bottom of a large tree, looking up into the tree you will find a parachute stuck on a branch."
+        },
+        "in_room":["map"]
+    },
+    "river":{
+        "description":"You are at the riverside, in front of you there is an old wooden bridge.On the other side of the bridge you will find a house that looks old and shabby. The forest behind you",
+        "actions":{
+            "go to the forest":"forest",
+            "jump over the river":"house",
+            "cross the wooden bridge":"crocodile"
+        },
+        "exit":false,
+        "must_have":[],
+        "cannot_have":[],
+        "if_has":null,
+        "in_room":[]
+    },
+    "crocodile":{
+        "description":"You choose to walk across an old wooden bridge to reach that house. But suddenly the wooden bridge collapsed. You fall into a river and are eaten by a crocodile to death.",
+        "actions":{},
+        "exit":true,
+        "must_have":[],
+        "cannot_have":[],
+        "if_has":null,
+        "in_room":[]
+    },
+    "house":{
+        "description":"You live in a house that seems to have been uninhabited for a long time. You find a door with a padlock, it looks like there's something inside.",
+        "actions":{
+            "open the door":"secret room",
+            "jump over the river":"river",
+            "cross the wooden bridge":"crocodile",
+            "go to the big tree":"tree"
+        },
+        "exit":false,
+        "must_have":[],
+        "cannot_have":[],
+        "if_has":null,
+        "in_room":["chain cutter"]
+    },
+    "secret room":{
+        "description":"You have used the orange key to unlock this room. In this room, it looks mysterious and mysterious. You find a gas mask lying on the table.",
+        "actions":{
+            "exit the secret room":"house"
+        },
+        "exit":false,
+        "must_have":["orange key"],
+        "cannot_have":[],
+        "if_has":{
+            "item": "gas mask",
+	        "description": "You are in a room that requires a key to unlock. Inside, it looks mysterious and intriguing."
+        },
+        "in_room":["gas mask"]
+    },
+    "mountain":{
+        "description":"You are on a mountain surrounded by trees. On the left hand side there was a village where strange people lived. In front of you is the mouth of a pitch-black cave. behind you is the forest",
+        "actions":{
+            "go to the forest":"forest",
+            "walk to the village":"village",
+            "go into the cave":"cave"
+        },
+        "exit":false,
+        "must_have":["map"],
+        "cannot_have":[],
+        "if_has":null,
+        "in_room":[]
+    },
+    "village":{
+        "description":"You walked into the village Suddenly a tribe of cannibals come and take you away. and take you to eat as food.",
+        "actions":{},
+        "exit":true,
+        "must_have":[],
+        "cannot_have":[],
+        "if_has":null,
+        "in_room":[]
+    },
+    "cave":{
+        "description":"It's very dark in this cave. You use a flashlight to light your way and you come across a path with poisonous gas blocking it.",
+        "actions":{
+            "walking through toxic gas":"radio room",
+            "out of the cave":"mountain"
+        },
+        "exit":false,
+        "must_have":["flashlight"],
+        "cannot_have":[],
+        "if_has":null,
+        "in_room":[]
+    },
+    "radio room":{
+        "description":"You put on a gas mask and walk through a cloud of toxic gas. You found a working radio. Congratulations, you've finally left this deserted island!",
+        "actions":{},
+        "exit":true,
+        "must_have":["gas mask"],
+        "cannot_have":[],
+        "if_has":null,
+        "in_room":[]
+    }
+}
